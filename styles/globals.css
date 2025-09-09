@@ -1,11 +1,21 @@
-html,
+:root {
+  --primary: #2167a2;
+  --primary-dark: #164062;
+  --secondary: #ffd700;
+  --text: #333;
+  --text-light: #666;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
-  font-size: 16px;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
 }
 
 * {
@@ -13,15 +23,17 @@ body {
 }
 
 a {
-  color: #2167a2;
+  color: var(--primary);
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--primary-dark);
 }
 
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
