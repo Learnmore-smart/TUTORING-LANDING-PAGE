@@ -1,8 +1,43 @@
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { BookOpen, Atom, Languages, FileText, Award } from 'lucide-react'
 import styles from '../styles/Home.module.css'
 
+const courses = [
+  {
+    id: 'math',
+    title: 'Mathematics',
+    icon: <BookOpen size={24} />,
+    description: 'From algebra to calculus, we make math approachable'
+  },
+  {
+    id: 'science', 
+    title: 'Science',
+    icon: <Atom size={24} />,
+    description: 'Biology, chemistry, physics made understandable'
+  },
+  {
+    id: 'english',
+    title: 'English',
+    icon: <FileText size={24} />,
+    description: 'Reading, writing, and literature mastery'
+  },
+  {
+    id: 'languages',
+    title: 'Languages',
+    icon: <Languages size={24} />,
+    description: 'Spanish, French, Mandarin and more'
+  },
+  {
+    id: 'testprep',
+    title: 'Test Prep',
+    icon: <Award size={24} />,
+    description: 'SAT, ACT, AP exams and strategies'
+  }
+]
+
 export default function Home() {
+  const [activeCourse, setActiveCourse] = useState(courses[0])
   useEffect(() => {
     const animateOnScroll = () => {
       const elements = document.querySelectorAll('.animate')
@@ -71,18 +106,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Courses Section */}
+      {/* Modern Courses Section */}
       <section id="courses" className={styles.courses}>
         <div className={styles.sectionHeader}>
-          <h2 className="animate">Our Courses</h2>
+          <h2 className="animate">Explore Our Courses</h2>
+          <p className="animate">Select a subject to learn more</p>
         </div>
-        <div className={styles.coursesGrid}>
-          {['Mathematics', 'Science', 'English', 'Languages', 'Test Prep'].map((course) => (
-            <div key={course} className={`${styles.courseCard} animate`}>
-              <h3>{course}</h3>
-              <button className={styles.courseButton}>View Details</button>
-            </div>
+        
+        <div className={styles.courseTabs}>
+          {courses.map(course => (
+            <button
+              key={course.id}
+              className={`${styles.courseTab} ${activeCourse.id === course.id ? styles.active : ''}`}
+              onClick={() => setActiveCourse(course)}
+            >
+              <span className={styles.courseTabIcon}>{course.icon}</span>
+              {course.title}
+            </button>
           ))}
+        </div>
+
+        <div className={styles.courseContent}>
+          <div className={styles.courseInfo}>
+            <h3>{activeCourse.title}</h3>
+            <p>{activeCourse.description}</p>
+            <div className={styles.courseFeatures}>
+              <ul>
+                <li>Personalized learning plans</li>
+                <li>Expert tutors in each subject</li>
+                <li>Flexible scheduling</li>
+                <li>Progress tracking</li>
+              </ul>
+            </div>
+            <button className={styles.freeTrialButton}>
+              Try 30-Minute Free Session
+            </button>
+          </div>
+          <div className={styles.courseImage}>
+            <img src="/logo-2.png" alt={activeCourse.title} />
+          </div>
         </div>
       </section>
 
@@ -103,6 +165,40 @@ export default function Home() {
               <button className={styles.pricingButton}>Get Started</button>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className={styles.testimonials}>
+        <div className={styles.sectionHeader}>
+          <h2>Trusted by Students & Parents</h2>
+          <p>Hear what they say about our tutoring</p>
+        </div>
+        <div className={styles.testimonialsGrid}>
+          <div className={styles.testimonialCard}>
+            <div className={styles.quote}>
+              "My grades improved dramatically after just a month!"
+            </div>
+            <div className={styles.author}>
+              <img src="/logo-1.png" alt="Student" />
+              <div>
+                <h4>Sarah Johnson</h4>
+                <p>High School Student</p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.testimonialCard}>
+            <div className={styles.quote}>
+              "The tutors are patient and explain concepts clearly."
+            </div>
+            <div className={styles.author}>
+              <img src="/logo-1.png" alt="Student" />
+              <div>
+                <h4>Michael Chen</h4>
+                <p>College Freshman</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
