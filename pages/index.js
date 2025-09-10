@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { BookOpen, Atom, Languages, FileText, Award } from 'lucide-react'
+import { BookOpen, Atom, Languages, FileText, Award, ArrowRight } from 'lucide-react'
 import styles from '../styles/Home.module.css'
 
 const courses = [
@@ -11,7 +11,7 @@ const courses = [
     description: 'From algebra to calculus, we make math approachable'
   },
   {
-    id: 'science', 
+    id: 'science',
     title: 'Science',
     icon: <Atom size={24} />,
     description: 'Biology, chemistry, physics made understandable'
@@ -38,6 +38,8 @@ const courses = [
 
 export default function Home() {
   const [activeCourse, setActiveCourse] = useState(courses[0])
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   useEffect(() => {
     const animateOnScroll = () => {
       const elements = document.querySelectorAll('.animate')
@@ -52,11 +54,20 @@ export default function Home() {
 
     const handleNavbarScroll = () => {
       const navbar = document.querySelector('.navbar')
-      if (window.scrollY > 100) {
-        navbar.classList.add('scrolled')
-      } else {
-        navbar.classList.remove('scrolled')
+      if (navbar) {
+        if (window.scrollY > 100) {
+          navbar.classList.add('scrolled')
+        } else {
+          navbar.classList.remove('scrolled')
+        }
       }
+    }
+
+    // Handle body scroll lock for mobile menu
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
     }
 
     window.addEventListener('scroll', animateOnScroll)
@@ -64,8 +75,9 @@ export default function Home() {
     return () => {
       window.removeEventListener('scroll', animateOnScroll)
       window.removeEventListener('scroll', handleNavbarScroll)
+      document.body.style.overflow = 'unset'
     }
-  }, [])
+  }, [isMobileMenuOpen])
 
   return (
     <div className={styles.container}>
@@ -84,15 +96,52 @@ export default function Home() {
             <a href="#courses" className={styles.navLink}>Courses</a>
             <a href="#pricing" className={styles.navLink}>Pricing</a>
             <a href="#testimonials" className={styles.navLink}>Success Stories</a>
-            <a href="/contact" className={styles.navLink}>Contact</a>
+            <span className={styles.navLink} style={{cursor: 'pointer', opacity: 0.5}}>Contact</span>
           </div>
           <button className={styles.ctaButton}>
-            Get Started <span className={styles.ctaArrow}>→</span>
+            Get Started <span className={styles.ctaArrow}><ArrowRight/></span>
           </button>
         </div>
       </nav>
 
-      {/* Modern Hero Section */}
+      {/* Mobile Menu Button - Outside navbar for mobile */}
+      <button
+        className={styles.mobileMenuButton}
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        aria-label="Toggle mobile menu"
+      >
+        <span className={isMobileMenuOpen ? styles.hamburgerOpen : styles.hamburger}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`${styles.mobileOverlay} ${isMobileMenuOpen ? styles.open : ''}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      ></div>
+
+        {/* Mobile Sidebar */}
+        <div className={`${styles.mobileSidebar} ${isMobileMenuOpen ? styles.sidebarOpen : ''}`}>
+          <div className={styles.sidebarContent}>
+            <button
+              className={styles.closeButton}
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close mobile menu"
+            >
+              ✕
+            </button>
+            <a href="#courses" className={styles.sidebarLink} onClick={() => setIsMobileMenuOpen(false)}>Courses</a>
+            <a href="#pricing" className={styles.sidebarLink} onClick={() => setIsMobileMenuOpen(false)}>Pricing</a>
+            <a href="#testimonials" className={styles.sidebarLink} onClick={() => setIsMobileMenuOpen(false)}>Success Stories</a>
+            <span className={styles.sidebarLink} style={{opacity: 0.5}} onClick={() => setIsMobileMenuOpen(false)}>Contact</span>
+            <button className={styles.sidebarCtaButton} onClick={() => setIsMobileMenuOpen(false)}>
+              Get Started <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>      {/* Modern Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
@@ -123,7 +172,7 @@ export default function Home() {
           <h2 className="animate">Explore Our Courses</h2>
           <p className="animate">Select a subject to learn more</p>
         </div>
-        
+
         <div className={styles.courseTabs}>
           {courses.map(course => (
             <button
@@ -166,21 +215,21 @@ export default function Home() {
         </div>
         <div className={styles.pricingGrid}>
           {[
-            { 
-              type: 'Online', 
-              price: '$29', 
+            {
+              type: 'Online',
+              price: '$29',
               popular: false,
               description: 'Virtual sessions with expert tutors via video call'
             },
-            { 
-              type: '1-on-1', 
-              price: '$49', 
+            {
+              type: '1-on-1',
+              price: '$49',
               popular: true,
               description: 'Personalized in-person tutoring with dedicated attention'
             },
-            { 
-              type: 'Group', 
-              price: '$19', 
+            {
+              type: 'Group',
+              price: '$19',
               popular: false,
               description: 'Small group sessions for collaborative learning'
             }
@@ -274,9 +323,11 @@ export default function Home() {
           </div>
           <div className={styles.footerContact}>
             <div className={styles.credits}>
+              {/* Please keep the ‘Made by Noah Zhang’ credit in the footer. */}
               <a href="https://github.com/Learnmore-smart" target="_blank" rel="noopener noreferrer">
                 Made by Noah Zhang
               </a>
+              {/* Please keep the ‘Made by Noah Zhang’ credit in the footer. */}
             </div>
           </div>
         </div>
