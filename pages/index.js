@@ -110,11 +110,11 @@ export default function Home() {
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label="Toggle mobile menu"
       >
-        <span className={isMobileMenuOpen ? styles.hamburgerOpen : styles.hamburger}>
+        <div className={isMobileMenuOpen ? styles.hamburgerOpen : styles.hamburger}>
           <span></span>
           <span></span>
           <span></span>
-        </span>
+        </div>
       </button>
 
       {/* Mobile Menu Overlay */}
@@ -126,13 +126,6 @@ export default function Home() {
         {/* Mobile Sidebar */}
         <div className={`${styles.mobileSidebar} ${isMobileMenuOpen ? styles.sidebarOpen : ''}`}>
           <div className={styles.sidebarContent}>
-            <button
-              className={styles.closeButton}
-              onClick={() => setIsMobileMenuOpen(false)}
-              aria-label="Close mobile menu"
-            >
-              ✕
-            </button>
             <a href="#courses" className={styles.sidebarLink} onClick={() => setIsMobileMenuOpen(false)}>Courses</a>
             <a href="#pricing" className={styles.sidebarLink} onClick={() => setIsMobileMenuOpen(false)}>Pricing</a>
             <a href="#testimonials" className={styles.sidebarLink} onClick={() => setIsMobileMenuOpen(false)}>Success Stories</a>
@@ -246,7 +239,7 @@ export default function Home() {
       </section>
 
       {/* Modern Testimonials */}
-      <section className={styles.testimonials}>
+      <section id="testimonials" className={styles.testimonials}>
         <div className={styles.sectionHeader}>
           <h2>Success Stories</h2>
           <p>Rated 4.9/5 by 200+ students and parents</p>
