@@ -2,14 +2,25 @@
 
 > A modern, beautifully designed website for academic tutoring services that helps students connect with expert tutors and achieve their learning goals.
 
-Welcome! This project is a complete tutoring platform built with modern web technologies. Whether you're a developer looking to understand the codebase, or someone who wants to customize this for your own tutoring business, this guide will walk you through everything step by step.
+Welcome! This is the official repository for the Academic Tutoring platform. This guide will help you understand how to run, develop, and deploy the website. Whether you're a team member working on the project or need to set up the development environment, this documentation has everything you need.
 
 ## ✨ What Makes This Special
 
-This isn't just another website template. It's a carefully crafted platform designed with real users in mind:
+This platform is carefully crafted and designed with real users in mind:
 
 - **🎨 Beautiful Design**: Clean, modern interface that builds trust with students and parents
 - **📱 Mobile-First**: Works perfectly on phones, tablets, and desktops - because students study everywhere
+- **⚡ Lightning Fast**: Optimized for speed so visitors don't bounce away
+- **🎯 Conversion Focused**: Every element is designed to turn visitors into students
+- **♿ Accessible**: Built following web accessibility standards so everyone can use it
+- **🔍 SEO Ready**: Optimized for search engines to help students find you
+
+## 🛠️ Built With Love Using
+
+- **Next.js** - The React framework that powers modern websites
+- **CSS Modules** - Organized, maintainable styling that won't break
+- **Lucide Icons** - Beautiful, consistent icons throughout the site
+- **Modern JavaScript** - Clean, readable code that's easy to maintain
 - **⚡ Lightning Fast**: Optimized for speed so visitors don't bounce away
 - **🎯 Conversion Focused**: Every element is designed to turn visitors into students
 - **♿ Accessible**: Built following web accessibility standards so everyone can use it
