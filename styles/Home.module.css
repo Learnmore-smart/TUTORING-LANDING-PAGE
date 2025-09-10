@@ -19,14 +19,28 @@
 
 /* Clean White Navbar */
 .navbar {
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
   padding: 0.5rem 0;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 50px;
   z-index: 1000;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar.scrolled {
+  top: 0.5rem;
+  width: 95%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .logo img {
@@ -135,6 +149,22 @@
   overflow: hidden;
 }
 
+.hero:before {
+  content: '';
+  position: absolute;
+  right: -25%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  height: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z'/%3E%3Cpath d='M5 3v4'/%3E%3Cpath d='M19 17v4'/%3E%3Cpath d='M3 5h4'/%3E%3Cpath d='M17 19h4'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1;
+  z-index: 0;
+}
+
 .heroContent {
   max-width: 1400px;
   margin: 0 auto;
@@ -168,6 +198,27 @@
   -webkit-text-fill-color: transparent;
   padding: 0 0.2rem;
 }
+
+.movingBgText {
+  background: linear-gradient(90deg, #FFFB7D, #FFD700, #FFFB7D);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 3s linear infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gradientFlow {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+
 
 .heroDescription {
   font-size: 1.3rem;
@@ -271,6 +322,24 @@
   background: transparent;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.courses:before {
+  content: '';
+  position: absolute;
+  left: -15%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  height: 40%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='none' stroke='%233367cc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 0;
 }
 
 .courseTabs {
@@ -328,7 +397,32 @@
   background: white;
   border-radius: 12px;
   padding: 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+   border: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.courseInfo {
+  background: linear-gradient(to bottom, white 0%, #f8f9fa 100%);
+}
+
+.courseInfo:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(33, 103, 162, 0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.courseInfo:hover:before {
+  opacity: 1;
+  animation: gradientFlow 2s linear infinite;
 }
 
 .courseInfo h3 {
@@ -410,6 +504,24 @@
 .pricing {
   padding: 8rem 2rem;
   background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing:before {
+  content: '';
+  position: absolute;
+  right: -15%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  height: 40%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='none' stroke='%233367cc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='12' x2='12' y1='1' y2='23'/%3E%3Cpath d='M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 0;
 }
 
 .pricingGrid {
@@ -421,7 +533,7 @@
 }
 
 .pricingCard {
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(to bottom, white 0%, #e6f7ff 100%);
   backdrop-filter: blur(10px);
   padding: 2.5rem;
   border-radius: 16px;
@@ -430,56 +542,65 @@
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.pricingCard:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(33, 103, 162, 0.3), rgba(255, 105, 180, 0.3), rgba(255, 215, 0, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.pricingCard:hover:before {
+  opacity: 1;
+  animation: gradientFlow 2s linear infinite;
 }
 
 .pricingCard:hover {
-  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,248,255,0.95) 100%);
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(33, 103, 162, 0.15);
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(230, 247, 255, 0.95) 100%);
+  box-shadow: 0 12px 40px rgba(33, 103, 162, 0.2);
 }
 
 .pricingCard.popular {
-  background: linear-gradient(135deg, rgba(33, 103, 162, 0.08) 0%, rgba(240, 248, 255, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(33, 103, 162, 0.08) 0%, rgba(230, 247, 255, 0.9) 100%);
   border: 1px solid var(--primary);
+  position: relative;
 }
 
 .pricingCard.popular:hover {
-  background: linear-gradient(135deg, rgba(33, 103, 162, 0.12) 0%, rgba(240, 248, 255, 0.95) 100%);
+  background: linear-gradient(135deg, rgba(33, 103, 162, 0.12) 0%, rgba(230, 247, 255, 0.95) 100%);
 }
 
-.popularBadge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background: var(--primary);
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(33, 103, 162, 0.3);
-  z-index: 1;
-}
+
 
 .pricingDescription {
   color: var(--text-light);
   margin-bottom: 2rem;
   line-height: 1.6;
   font-size: 0.95rem;
+  min-height: 80px;
 }
 
-.popularBadge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background: var(--primary);
-  color: white;
-  padding: 0.4rem 1.2rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(33, 103, 162, 0.2);
+.pricingCard.popular .pricingDescription {
+  color: var(--primary-dark);
+  font-weight: 500;
 }
+
+.pricingIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+
 
 .pricingCard h3 {
   color: var(--primary-dark);
@@ -544,6 +665,24 @@
 .testimonials {
   padding: 6rem 2rem;
   background: linear-gradient(to bottom, #f9fafc 0%, white 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials:before {
+  content: '';
+  position: absolute;
+  left: -15%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  height: 40%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='none' stroke='%233367cc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 0;
 }
 
 .sectionHeader {
@@ -569,24 +708,69 @@
 
 .testimonialCard {
   padding: 2rem;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(249,250,252,0.9) 100%);
+  background: white;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
+  transition: box-shadow 0.3s ease;
+}
+
+.testimonialCard:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(33, 103, 162, 0.2), rgba(255, 105, 180, 0.2), rgba(255, 215, 0, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.testimonialCard:hover:before {
+  opacity: 1;
+  animation: gradientFlow 2s linear infinite;
 }
 
 .testimonialCard:hover {
-  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(240,245,255,1) 100%);
-  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+.testimonialCard .content {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonialIcon {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  font-size: 10rem;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.testimonialCard {
+  background: linear-gradient(to bottom, white 0%, #f9fafc 100%);
+}
+
+.testimonialCard:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(33, 103, 162, 0.12), transparent);
+  animation: gradientFlow 2s linear infinite;
+  z-index: 0;
 }
 
 .testimonialCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .rating {
@@ -686,6 +870,25 @@
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   color: var(--text-light);
   font-size: 0.9rem;
+}
+
+.footerContact {
+  text-align: right;
+}
+
+.footerContact a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footerContact a:hover {
+  opacity: 0.8;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
 }
 
 .credits {

@@ -50,8 +50,21 @@ export default function Home() {
       })
     }
 
+    const handleNavbarScroll = () => {
+      const navbar = document.querySelector('.navbar')
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled')
+      } else {
+        navbar.classList.remove('scrolled')
+      }
+    }
+
     window.addEventListener('scroll', animateOnScroll)
-    return () => window.removeEventListener('scroll', animateOnScroll)
+    window.addEventListener('scroll', handleNavbarScroll)
+    return () => {
+      window.removeEventListener('scroll', animateOnScroll)
+      window.removeEventListener('scroll', handleNavbarScroll)
+    }
   }, [])
 
   return (
@@ -83,8 +96,8 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
-            <h1 className={`${styles.heroTitle} animate`}>
-              Transform Your <span className={styles.highlight}>Learning</span> Experience
+            <h1 className={`${styles.heroTitle} ${styles.movingBgText} animate`}>
+              Transform Your Learning Experience
             </h1>
             <p className={`${styles.heroDescription} animate`}>
               Personalized tutoring that adapts to your unique learning style and goals.
@@ -92,11 +105,9 @@ export default function Home() {
             <div className={`${styles.heroButtons} animate`}>
               <button className={styles.primaryButton}>
                 Start Free Trial
-                <span className={styles.buttonIcon}>🎯</span>
               </button>
               <button className={styles.secondaryButton}>
                 How It Works
-                <span className={styles.buttonIcon}>❓</span>
               </button>
             </div>
           </div>
@@ -155,13 +166,30 @@ export default function Home() {
         </div>
         <div className={styles.pricingGrid}>
           {[
-            { type: 'Online', price: '$29', popular: false },
-            { type: '1-on-1', price: '$49', popular: true },
-            { type: 'Group', price: '$19', popular: false }
+            { 
+              type: 'Online', 
+              price: '$29', 
+              popular: false,
+              description: 'Virtual sessions with expert tutors via video call'
+            },
+            { 
+              type: '1-on-1', 
+              price: '$49', 
+              popular: true,
+              description: 'Personalized in-person tutoring with dedicated attention'
+            },
+            { 
+              type: 'Group', 
+              price: '$19', 
+              popular: false,
+              description: 'Small group sessions for collaborative learning'
+            }
           ].map((plan) => (
             <div key={plan.type} className={`${styles.pricingCard} ${plan.popular ? styles.popular : ''} animate`}>
+              {plan.popular && <div className={styles.popularBadge}>Most Popular</div>}
               <h3>{plan.type}</h3>
               <div className={styles.price}>{plan.price}<span>/session</span></div>
+              <p className={styles.pricingDescription}>{plan.description}</p>
               <button className={styles.pricingButton}>Get Started</button>
             </div>
           ))}
@@ -219,11 +247,37 @@ export default function Home() {
         <div className={styles.footerContent}>
           <div className={styles.footerLogo}>
             <img src="/logo-1.png" alt="Academic Tutoring" width={150} height={40} />
+            <p>Transforming education through personalized learning experiences</p>
           </div>
           <div className={styles.footerLinks}>
+            <h4>Services</h4>
             <a href="#courses">Courses</a>
             <a href="#pricing">Pricing</a>
             <a href="/contact">Contact</a>
+          </div>
+          <div className={styles.footerLinks}>
+            <h4>Resources</h4>
+            <a href="/about">About Us</a>
+            <a href="/testimonials">Success Stories</a>
+            <a href="/blog">Learning Tips</a>
+          </div>
+          <div className={styles.footerLinks}>
+            <h4>Support</h4>
+            <a href="/faq">FAQ</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
+        </div>
+        <div className={styles.footerBottom}>
+          <div className={styles.copyright}>
+            © 2025 Academic Tutoring. All rights reserved.
+          </div>
+          <div className={styles.footerContact}>
+            <div className={styles.credits}>
+              <a href="https://github.com/Learnmore-smart" target="_blank" rel="noopener noreferrer">
+                Made by Noah Zhang
+              </a>
+            </div>
           </div>
         </div>
       </footer>
