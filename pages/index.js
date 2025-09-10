@@ -168,34 +168,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Modern Testimonials */}
       <section className={styles.testimonials}>
         <div className={styles.sectionHeader}>
-          <h2>Trusted by Students & Parents</h2>
-          <p>Hear what they say about our tutoring</p>
+          <h2>Success Stories</h2>
+          <p>Rated 4.9/5 by 200+ students and parents</p>
         </div>
         <div className={styles.testimonialsGrid}>
           <div className={styles.testimonialCard}>
+            <div className={styles.rating}>★★★★★</div>
             <div className={styles.quote}>
-              "My grades improved dramatically after just a month!"
+              "From failing to honor roll in just 2 months!"
             </div>
             <div className={styles.author}>
-              <img src="/logo-1.png" alt="Student" />
-              <div>
+              <div className={styles.authorInfo}>
                 <h4>Sarah Johnson</h4>
-                <p>High School Student</p>
+                <p>Grade 11 Student</p>
               </div>
             </div>
           </div>
           <div className={styles.testimonialCard}>
+            <div className={styles.rating}>★★★★☆</div>
             <div className={styles.quote}>
-              "The tutors are patient and explain concepts clearly."
+              "The personalized approach made all the difference for my son."
             </div>
             <div className={styles.author}>
-              <img src="/logo-1.png" alt="Student" />
-              <div>
+              <div className={styles.authorInfo}>
+                <h4>Lisa Thompson</h4>
+                <p>Parent</p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.testimonialCard}>
+            <div className={styles.rating}>★★★★★</div>
+            <div className={styles.quote}>
+              "Scored 95% on my calculus final thanks to my tutor!"
+            </div>
+            <div className={styles.author}>
+              <div className={styles.authorInfo}>
                 <h4>Michael Chen</h4>
-                <p>College Freshman</p>
+                <p>University Student</p>
               </div>
             </div>
           </div>
