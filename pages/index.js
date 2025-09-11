@@ -318,7 +318,7 @@ export default function Home() {
             <div className={styles.credits}>
               {/* Please keep the ‘Made by Noah Zhang’ credit in the footer. */}
               <a href="https://github.com/Learnmore-smart" target="_blank" rel="noopener noreferrer">
-                Made by Noah Zhang
+                Website Made by Noah Zhang
               </a>
               {/* Please keep the ‘Made by Noah Zhang’ credit in the footer. */}
             </div>
