@@ -316,11 +316,11 @@ export default function Home() {
           </div>
           <div className={styles.footerContact}>
             <div className={styles.credits}>
-              {/* Please keep the ‘Made by Noah Zhang’ credit in the footer. */}
+              {/* Please keep the ‘Made by Learnmore_smart’ credit in the footer. */}
               <a href="https://github.com/Learnmore-smart" target="_blank" rel="noopener noreferrer">
-                Website Made by Noah Zhang
+                Website Made by Learnmore_smart
               </a>
-              {/* Please keep the ‘Made by Noah Zhang’ credit in the footer. */}
+              {/* Please keep the ‘Made by Learnmore_smart’ credit in the footer. */}
             </div>
           </div>
         </div>
