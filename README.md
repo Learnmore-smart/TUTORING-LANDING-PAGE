@@ -1,4 +1,4 @@
-# Academic Tutoring Platform 🎓
+# Tutoring Platform Landing Page 🎓
 
 > A modern, beautifully designed website for academic tutoring services that helps students connect with expert tutors and achieve their learning goals.
 
