@@ -82,15 +82,15 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Academic Tutoring - Making Learning Accessible</title>
-        <meta name="description" content="Professional academic tutoring services" />
+        <title>Demo - Making Learning Accessible</title>
+        <meta name="description" content="Demo site" />
       </Head>
 
       {/* Modern Navigation */}
       <nav className={styles.navbar}>
         <div className={styles.navContainer}>
           <div className={styles.logo}>
-            <img src="/logo-1.png" alt="Academic Tutoring" width={180} height={50} />
+            <img src="/logo-1.png" alt="Demo" width={180} height={50} />
           </div>
           <div className={styles.navLinks}>
             <a href="#courses" className={styles.navLink}>Courses</a>
@@ -288,7 +288,7 @@ export default function Home() {
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <div className={styles.footerLogo}>
-            <img src="/logo-1.png" alt="Academic Tutoring" width={150} height={40} />
+            <img src="/logo-1.png" alt="Demo" width={150} height={40} />
             <p>Transforming education through personalized learning experiences</p>
           </div>
           <div className={styles.footerLinks}>
@@ -312,7 +312,7 @@ export default function Home() {
         </div>
         <div className={styles.footerBottom}>
           <div className={styles.copyright}>
-            © 2025 Academic Tutoring. All rights reserved.
+            © 2025 Demo. All rights reserved.
           </div>
           <div className={styles.footerContact}>
             <div className={styles.credits}>
