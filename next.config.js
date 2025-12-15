@@ -5,6 +5,7 @@ const nextConfig = {
     domains: [],
     unoptimized: true
   },
+  output: 'export'
 }
 
 export default nextConfig
