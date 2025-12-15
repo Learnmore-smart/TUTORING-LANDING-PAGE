@@ -326,6 +326,6 @@ If this project helps your tutoring business grow, I'd love to hear about it! Fe
 
 This project is open source under the MIT License - feel free to use it for your business, modify it, or learn from it.
 
-**Created with ❤️ by [Noah Zhang](https://github.com/Learnmore-smart)**
+**Created with ❤️ by [Learnmore_smart](https://github.com/Learnmore-smart)**
 
 *If you found this helpful, consider giving the project a ⭐ on GitHub - it helps other tutors find it too!*
