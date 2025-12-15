@@ -5,7 +5,8 @@ const nextConfig = {
     domains: [],
     unoptimized: true
   },
-  output: 'export'
+  output: 'export',
+  basePath: '/TUTORING-LANDING-PAGE'
 }
 
 export default nextConfig
