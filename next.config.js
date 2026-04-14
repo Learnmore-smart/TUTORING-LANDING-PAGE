@@ -6,7 +6,7 @@ const nextConfig = {
     unoptimized: true
   },
   output: 'export',
-  basePath: '/TUTORING-LANDING-PAGE'
+  basePath: '/academic-tutoring'
 }
 
 export default nextConfig
