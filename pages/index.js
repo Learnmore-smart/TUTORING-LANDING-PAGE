@@ -90,7 +90,7 @@ export default function Home() {
       <nav className={styles.navbar}>
         <div className={styles.navContainer}>
           <div className={styles.logo}>
-            <img src="logo-1.png" alt="Demo" width={180} height={50} />
+            <img src="/academic-tutoring/logo-1.png" alt="Demo" width={180} height={50} />
           </div>
           <div className={styles.navLinks}>
             <a href="#courses" className={styles.navLink}>Courses</a>
@@ -154,7 +154,7 @@ export default function Home() {
             </div>
           </div>
           <div className={`${styles.heroImage} animate`}>
-            <img src="logo-2.png" alt="Happy student learning" />
+            <img src="/academic-tutoring/logo-2.png" alt="Happy student learning" />
           </div>
         </div>
       </section>
@@ -196,7 +196,7 @@ export default function Home() {
             </button>
           </div>
           <div className={styles.courseImage}>
-            <img src="logo-2.png" alt={activeCourse.title} />
+            <img src="/academic-tutoring/logo-2.png" alt={activeCourse.title} />
           </div>
         </div>
       </section>
@@ -288,26 +288,26 @@ export default function Home() {
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <div className={styles.footerLogo}>
-            <img src="logo-1.png" alt="Demo" width={150} height={40} />
+            <img src="/academic-tutoring/logo-1.png" alt="Demo" width={150} height={40} />
             <p>Transforming education through personalized learning experiences</p>
           </div>
           <div className={styles.footerLinks}>
             <h4>Services</h4>
             <a href="#courses">Courses</a>
             <a href="#pricing">Pricing</a>
-            <a href="contact">Contact</a>
+            <a href="/academic-tutoring/contact">Contact</a>
           </div>
           <div className={styles.footerLinks}>
             <h4>Resources</h4>
-            <a href="about">About Us</a>
-            <a href="testimonials">Success Stories</a>
-            <a href="blog">Learning Tips</a>
+            <a href="/academic-tutoring/about">About Us</a>
+            <a href="/academic-tutoring/testimonials">Success Stories</a>
+            <a href="/academic-tutoring/blog">Learning Tips</a>
           </div>
           <div className={styles.footerLinks}>
             <h4>Support</h4>
-            <a href="faq">FAQ</a>
-            <a href="privacy">Privacy Policy</a>
-            <a href="terms">Terms of Service</a>
+            <a href="/academic-tutoring/faq">FAQ</a>
+            <a href="/academic-tutoring/privacy">Privacy Policy</a>
+            <a href="/academic-tutoring/terms">Terms of Service</a>
           </div>
         </div>
         <div className={styles.footerBottom}>
